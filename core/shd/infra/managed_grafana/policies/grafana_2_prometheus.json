@@ -1,0 +1,100 @@
+{
+	"Statement": [
+		{
+			"Action": [
+				"aps:ListRules",
+				"aps:UntagResource",
+				"aps:DescribeScraper",
+				"aps:TagResource",
+				"aps:GetDefaultScraperConfiguration",
+				"aps:ListAlertManagerAlerts",
+				"aps:ListTagsForResource",
+				"aps:GetLabels",
+				"aps:ListRuleGroupsNamespaces",
+				"aps:GetAlertManagerStatus",
+				"aps:GetAlertManagerSilence",
+				"aps:ListAlertManagerAlertGroups",
+				"aps:DescribeAlertManagerDefinition",
+				"aps:QueryMetrics",
+				"aps:DescribeRuleGroupsNamespace",
+				"aps:GetMetricMetadata",
+				"aps:DescribeWorkspace",
+				"aps:ListAlerts",
+				"aps:ListScrapers",
+				"aps:DescribeLoggingConfiguration",
+				"aps:ListAlertManagerSilences",
+				"aps:ListWorkspaces",
+				"aps:GetSeries",
+				"aps:ListAlertManagerReceivers"
+			],
+			"Effect": "Allow",
+			"Resource": "*",
+			"Sid": "VisualEditor0"
+		},
+    {
+      "Sid": "AllowReadingResourcesForTags",
+      "Effect": "Allow",
+      "Action": "tag:GetResources",
+      "Resource": "*"
+    },
+    {
+      "Sid": "AllowReadingTagsInstancesRegionsFromEC2",
+      "Effect": "Allow",
+      "Action": ["ec2:DescribeTags", "ec2:DescribeInstances", "ec2:DescribeRegions"],
+      "Resource": "*"
+    },
+    {
+      "Sid": "AllowReadingMetricsFromCloudWatch",
+      "Effect": "Allow",
+      "Action": [
+        "cloudwatch:DescribeAlarmsForMetric",
+        "cloudwatch:DescribeAlarmHistory",
+        "cloudwatch:DescribeAlarms",
+        "cloudwatch:ListMetrics",
+        "cloudwatch:GetMetricData",
+        "cloudwatch:GetInsightRuleReport"
+      ],
+      "Resource": "*"
+    },
+	{
+	  "Sid": "GrafanaWSManaged",
+	  "Effect": "Allow",
+	  "Action": [
+		"grafana:*",
+		"aws-marketplace:ViewSubscriptions",
+		"sso:DescribeRegisteredRegions",
+		"sso:GetSharedSsoConfiguration",
+		"sso:CreateManagedApplicationInstance",
+		"sso:DeleteManagedApplicationInstance",
+		"organizations:DescribeOrganization",
+		"iam:CreateServiceLinkedRole",
+		"ec2:GetManagedPrefixListEntries",
+		"ec2:DescribeSubnets",
+		"ec2:DescribeSecurityGroups",
+		"cloudwatch:DescribeAlarmsForMetric",
+		"cloudwatch:DescribeAlarmHistory",
+		"cloudwatch:DescribeAlarms",
+		"cloudwatch:ListMetrics",
+		"cloudwatch:GetMetricStatistics",
+		"cloudwatch:GetMetricData",
+		"cloudwatch:GetInsightRuleReport"
+	  ],
+	  "Resource": "*"
+	},
+	{
+		"Sid": "AllowTrustAssumAppInfra",
+		"Effect": "Allow",
+		"Action": [
+		  "sts:AssumeRole"
+		],
+		"Resource": [
+			"arn:aws:iam::605836930483:role/prometheus-grafana-shd-crossaccount",
+			"arn:aws:iam::213997214095:role/prometheus-grafana-shd-crossaccount",
+			"arn:aws:iam::036973397917:role/prometheus-grafana-shd-crossaccount",
+			"arn:aws:iam::818366959089:role/prometheus-grafana-shd-crossaccount",
+			"arn:aws:iam::444205886984:role/prometheus-grafana-shd-crossaccount"
+		]
+	}
+  ],
+  "Version": "2012-10-17"
+}

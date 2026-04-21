@@ -1,0 +1,7 @@
+ou             = "core"
+environment    = "shd"
+component      = "ci"
+cwd            = "core/shd/infra/managed_grafana_cac_cicd"
+solutions_root = "../managed_grafana_cac"
+solution_name  = "managed_grafana-infra-cac"
+naming_prefix  = "deploy"

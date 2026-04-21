@@ -1,6 +1,0 @@
-[distutils]
-index-servers = local
-[local]
-repository: https://artifactory.hedgeserv.net/artifactory/api/pypi/hs_python_repo
-username: service-art-ro
-password: ARTIFACTORY_TOKEN
